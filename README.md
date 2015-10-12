@@ -1,5 +1,5 @@
 # Redux Sample Project with 500px API
-This repository was prepared to make a simple introduction to Redux. The project was developed using ES6 and Webpack, and* both ES6 and Webpack are prerequisite.
+This repository was prepared to make a simple introduction to Redux. The project was developed using ES6 and Webpack, both ES6 and Webpack are prerequisite.
 
 **Notice**: It uses [*fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to get data from 500px, hence the project is not running in IE and Safari (Webkit) due to lack of support.
 
