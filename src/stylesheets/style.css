@@ -1,0 +1,67 @@
+body{
+  font-family: 'Roboto', sans-serif !important;
+  background: #f1f1f1;
+}
+.header{
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  padding: 200px 0px 200px 0px;
+
+  animation-name: headeranimation;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes headeranimation {
+  to {padding: 20px 0px 20px 0px}
+}
+
+h1{
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0px 0px 20px 0px;
+}
+
+.form-group{
+  margin-bottom: 0px !important;
+}
+
+.form-control{
+  box-shadow: none !important;
+  border: 1px solid #fff !important;
+}
+
+.form-control:focus{
+  border: 1px solid #666 !important;
+}
+
+.search-bar-content{
+  text-align:center;
+}
+
+.image-item{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.image-item img{
+  width: 100%;
+}
+
+.loading{
+  margin: 20px auto 0px auto;
+  width: 48px;
+  height: 48px;
+  border: 8px solid rgba(196, 196, 196, 0.75);
+  border-right-color: transparent;
+  border-radius: 50%;
+
+  animation: spinner 1s ease infinite;
+  -webkit-animation: spinner 1s ease infinite;
+}
+@keyframes spinner {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
