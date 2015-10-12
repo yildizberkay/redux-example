@@ -3,6 +3,8 @@ This repository was prepared to make a simple introduction to Redux. The project
 
 **Notice**: It uses [*fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to get data from 500px, hence the project is not running in IE and Safari (Webkit) due to lack of support.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/9cb917aa3a164299a4d60026886101e3)](https://www.codacy.com/app/yildizbe/redux-example)
+
 ### Installation
 Clone the repository and install dependencies.
 
