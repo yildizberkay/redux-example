@@ -4,7 +4,7 @@ import PhotoSearch from '../api/PhotoSearch';
 
 export default class SearchInput extends Component {
   searchPhoto(e){
-    if(e.which == 13){
+    if(e.which === 13){
       const val = ReactDom.findDOMNode(this.refs.keyword).value;
       this.props.actions.searchPhotoAction(val);
 

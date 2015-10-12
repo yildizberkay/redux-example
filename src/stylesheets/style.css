@@ -1,79 +1,150 @@
-body{
-  font-family: 'Roboto', sans-serif !important;
-  background: #f1f1f1;
+body
+{
+    font-family: 'Roboto', sans-serif;
+
+    background: #f1f1f1;
 }
-.header{
-  background-position: center center;
-  background-size: cover;
-  width: 100%;
-  padding: 200px 0px 200px 0px;
+.header
+{
+    width: 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
 
-  animation-name: headeranimation;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
+    -webkit-animation-name: headeranimation;
+       -moz-animation-name: headeranimation;
+            animation-name: headeranimation;
+    -webkit-animation-duration: 1s;
+       -moz-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-play-state: paused;
+       -moz-animation-play-state: paused;
+            animation-play-state: paused;
+    -webkit-animation-timing-function: ease;
+       -moz-animation-timing-function: ease;
+            animation-timing-function: ease;
 
-  -webkit-animation-name: headeranimation;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: paused;
-}
+    background-position: center center;
+    background-size: cover;
 
-@keyframes headeranimation {
-  to {padding: 20px 0px 20px 0px}
-}
-
-h1{
-  color: rgba(10, 10, 10, 0.6);
-  margin: 0px 0px 20px 0px;
-}
-
-.form-group{
-  margin-bottom: 0px !important;
+            animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+       -moz-animation-fill-mode: forwards;
 }
 
-.form-control{
-  box-shadow: none !important;
-  border: 1px solid #fff !important;
+@keyframes headeranimation
+{
+    to
+    {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
-.form-control:focus{
-  border: 1px solid #666 !important;
+@-webkit-keyframes headeranimation
+{
+    to
+    {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
-.search-bar-content{
-  text-align:center;
+@-moz-keyframes headeranimation
+{
+    to
+    {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
-.image-item{
-  margin-top: 10px;
-  margin-bottom: 10px;
+h1
+{
+    margin: 0 0 20px 0;
+
+    color: rgba(10, 10, 10, .6);
 }
 
-.image-item img{
-  width: 100%;
+div.form-group
+{
+    margin-bottom: 0;
 }
 
-.loading{
-  margin: 20px auto 0px auto;
-  width: 48px;
-  height: 48px;
-  border: 8px solid rgba(196, 196, 196, 0.75);
-  border-right-color: transparent;
-  border-radius: 50%;
-
-  animation: spinner 1s ease infinite;
-  -webkit-animation: spinner 1s ease infinite;
+div.form-group > input.form-control.input-lg
+{
+    border: 1px solid #fff;
+    box-shadow: none;
 }
 
-@keyframes spinner {
-  from {transform: rotate(0deg)}
-  to {transform: rotate(360deg)}
+div.form-group > input.form-control.input-lg:focus
+{
+    border: 1px solid #666;
 }
 
-@-webkit-keyframes spinner {
-  from {transform: rotate(0deg)}
-  to {transform: rotate(360deg)}
+.search-bar-content
+{
+    text-align: center;
+}
+
+.image-item
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.image-item img
+{
+    width: 100%;
+}
+
+.loading
+{
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    margin: 20px auto 0 auto;
+
+    -webkit-animation: spinner 1s ease infinite;
+       -moz-animation: spinner 1s ease infinite;
+            animation: spinner 1s ease infinite;
+
+    border: 8px solid rgba(196, 196, 196, .75);
+    border-right-color: transparent;
+    border-radius: 50%;
+}
+
+@keyframes spinner
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spinner
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
 }
