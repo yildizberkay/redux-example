@@ -1,6 +1,8 @@
 # Redux Sample Project with 500px API
 This repository was prepared to make a simple introduction to Redux. The project was developed using ES6 and Webpack, and* both ES6 and Webpack are prerequisite.
 
+**Notice**: It uses [*fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to get data from 500px, hence the project is not running in IE and Safari (Webkit) due to lack of support.
+
 ### Installation
 Clone the repository and install dependencies.
 
@@ -19,6 +21,7 @@ open http://localhost:3000
 Let's think about an ordinary React app. There are components, states, props and API actions. A component calls another components and if you trigger an UI state, view is updated and etc... Finally, the app becomes complex and you cannot control it.
 
 > React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC.
+>
 > Source: https://facebook.github.io/react/docs/why-react.html
 
 We need a state container like Redux. How does Redux solve this problem?
@@ -30,6 +33,7 @@ There are 3 primary parts of Redux: actions, reducers and store.
 Actions are used to get data. API requests can be made in this part.
 
 > Actions are payloads of information that send data from your application to your store. They are the only source of information for the store.
+>
 > Source: http://rackt.github.io/redux/docs/basics/Actions.html
 
 In following code, firstly **searchPhotoAction** passes only one data type, after end of the request, payload and other informations are sent using dispatch callback. Using type variable, you can determine request's state, and show a spinner.
@@ -176,3 +180,8 @@ Root
 ├── server.js
 └── webpack.config.js
 ```
+
+### Resources
+- https://facebook.github.io/react/
+- http://rackt.github.io/redux/
+- http://webpack.github.io

@@ -13,6 +13,12 @@ body{
   animation-timing-function: ease;
   animation-fill-mode: forwards;
   animation-play-state: paused;
+
+  -webkit-animation-name: headeranimation;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
 }
 
 @keyframes headeranimation {
@@ -61,7 +67,13 @@ h1{
   animation: spinner 1s ease infinite;
   -webkit-animation: spinner 1s ease infinite;
 }
+
 @keyframes spinner {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+@-webkit-keyframes spinner {
   from {transform: rotate(0deg)}
   to {transform: rotate(360deg)}
 }
