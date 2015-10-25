@@ -190,10 +190,11 @@ Root
 - https://facebook.github.io/react/
 - http://rackt.github.io/redux/
 - http://webpack.github.io
+- https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 
 ## Changelog
 
-### Oct 26, 2015
+### Oct 25, 2015
 - Fetch support for all browsers. [@pcanterini](https://github.com/pcanterini) [PR](https://github.com/yildizberkay/redux-example/pull/1)
 - Airbnb ESLint rules were added.
 
