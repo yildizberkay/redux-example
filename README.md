@@ -3,6 +3,18 @@ This repository was prepared to make a simple introduction to Redux. The project
 
 [![Codacy Badge](https://api.codacy.com/project/badge/9cb917aa3a164299a4d60026886101e3)](https://www.codacy.com/app/yildizbe/redux-example)
 
+## Table of contents
+- [Installation](#installation)
+- [Why do we need Redux?](#why-do-we-need-redux)
+  - [Actions](#actions)
+  - [Reducers](#reducers)
+  - [Store](#store)
+- [Directory structure](#directory-structure)
+- [Resources](#resources)
+- [Changelog](#changelog)
+  - [Oct 25, 2015](#oct-25-2015)
+  - [Oct 12, 2015](#oct-12-2015)
+
 ## Installation
 Clone the repository and install dependencies.
 
