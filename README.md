@@ -1,11 +1,9 @@
 # Redux Sample Project with 500px API
 This repository was prepared to make a simple introduction to Redux. The project was developed using ES6 and Webpack, both ES6 and Webpack are prerequisite.
 
-**Notice**: It uses [*fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to get data from 500px, hence the project is not running in IE and Safari (Webkit) due to lack of support.
-
 [![Codacy Badge](https://api.codacy.com/project/badge/9cb917aa3a164299a4d60026886101e3)](https://www.codacy.com/app/yildizbe/redux-example)
 
-### Installation
+## Installation
 Clone the repository and install dependencies.
 
 ```
@@ -19,7 +17,12 @@ npm start
 open http://localhost:3000
 ```
 
-### Why do we need Redux?
+ESLint
+```
+./node_modules/.bin/eslint ./src/
+```
+
+## Why do we need Redux?
 Let's think about an ordinary React app. There are components, states, props and API actions. A component calls another components and if you trigger an UI state, view is updated and etc... Finally, the app becomes complex and you cannot control it.
 
 > React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC.
@@ -160,7 +163,7 @@ export default class SearchApp extends Component {
 }
 ```
 
-### Directory structure
+## Directory structure
 ```
 Root
 ├── src
@@ -183,7 +186,16 @@ Root
 └── webpack.config.js
 ```
 
-### Resources
+## Resources
 - https://facebook.github.io/react/
 - http://rackt.github.io/redux/
 - http://webpack.github.io
+
+## Changelog
+
+### Oct 26, 2015
+- Fetch support for all browsers. [@pcanterini](https://github.com/pcanterini) [PR](https://github.com/yildizberkay/redux-example/pull/1)
+- Airbnb ESLint rules were added.
+
+### Oct 12, 2015
+- Initial commit.

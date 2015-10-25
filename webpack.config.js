@@ -1,34 +1,34 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './src/index'
+    './src/index',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.js?$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'src')
-      }
-    ]
+        include: path.join(__dirname, 'src'),
+      },
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    })
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.json']
-  }
+    extensions: ['', '.js', '.json'],
+  },
 };

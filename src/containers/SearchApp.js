@@ -7,16 +7,17 @@ import PhotoList from '../components/PhotoList';
 
 @connect(state => ({
   photos: state.photos.photos,
-  status: state.photos.status
+  status: state.photos.status,
 }))
 export default class SearchApp extends Component {
 
   static propTypes = {
     status: PropTypes.string.isRequired,
-    dispatch: PropTypes.func.isRequired
+    photos: PropTypes.array,
+    dispatch: PropTypes.func.isRequired,
   }
 
-  render () {
+  render() {
     const actions = bindActionCreators(action, this.props.dispatch);
     return (
       <div>

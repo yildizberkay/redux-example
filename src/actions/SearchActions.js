@@ -1,37 +1,37 @@
 import * as types from '../constants/SearchActionTypes';
-import PhotoSearch from '../api/PhotoSearch';
+import photoSearch from '../api/PhotoSearch';
 
-function searchWithPhotoAPI(keyword, page, dispatch){
-  if(page >= 2){
+function searchWithPhotoAPI(keyword, page, dispatch) {
+  if (page >= 2) {
     dispatch({
-      type: types.SEARCH_PENDING_FOR_NEXT
+      type: types.SEARCH_PENDING_FOR_NEXT,
     });
-  }else{
+  }else {
     dispatch({
-      type: types.SEARCH_PENDING
+      type: types.SEARCH_PENDING,
     });
   }
 
-  PhotoSearch(keyword, page, (d) => {
+  photoSearch(keyword, page, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
-      photos: d.photos,
+      photos: data.photos,
       page,
-      keyword
+      keyword,
     });
   });
 }
 
-export function searchNextPageAction(){
-  return (dispatch, getState) => {
+export function searchNextPageAction() {
+  return (dispatch, getState) =>{
     const page = getState().photos.page + 1;
     const keyword = getState().photos.keyword;
     searchWithPhotoAPI(keyword, page, dispatch);
-  }
+  };
 }
 
-export function searchPhotoAction(keyword, page = 1){
-  return (dispatch, getState) => {
+export function searchPhotoAction(keyword, page = 1) {
+  return (dispatch) => {
     searchWithPhotoAPI(keyword, page, dispatch);
-  }
+  };
 }

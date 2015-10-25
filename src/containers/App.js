@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import * as reducers from '../reducers';
-import Styles from '../stylesheets/style.css'
+/* eslint-disable no-unused-vars */
+import Styles from '../stylesheets/style.css';
+/* eslint-enable no-unused-vars */
 
 import SearchApp from './SearchApp';
 
