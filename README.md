@@ -31,7 +31,7 @@ open http://localhost:3000
 
 ESLint
 ```
-./node_modules/.bin/eslint ./src/
+npm run lint
 ```
 
 ## Why do we need Redux?
