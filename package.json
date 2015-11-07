@@ -4,7 +4,8 @@
   "description": "Sample Redux project.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "./node_modules/.bin/eslint ./src/ || true"
   },
   "author": "Berkay Yildiz",
   "license": "ISC",
