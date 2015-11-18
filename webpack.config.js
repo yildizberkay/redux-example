@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
+    'webpack-hot-middleware/client',
     './src/index',
   ],
   output: {
@@ -14,7 +15,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        loaders: ['style', 'css-loader'],
       },
       {
         test: /\.js?$/,
@@ -27,6 +28,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
     }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
   resolve: {
     extensions: ['', '.js', '.json'],
