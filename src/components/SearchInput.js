@@ -21,7 +21,7 @@ export default class SearchInput extends Component {
         <div className="form-group">
           <input onKeyDown={this.searchPhoto.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="Nature, Sky, Aurora... + Enter" />
         </div>
-        {()=>{
+        {() => {
           if (this.props.status === 'PENDING') {
             return (<div className="loading" />);
           }
