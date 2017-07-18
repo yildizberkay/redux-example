@@ -3,6 +3,8 @@ This repository was prepared to make a simple introduction to Redux. The project
 
 [![Codacy Badge](https://api.codacy.com/project/badge/9cb917aa3a164299a4d60026886101e3)](https://www.codacy.com/app/yildizbe/redux-example)
 
+[![Demo GIF](https://raw.githubusercontent.com/yildizberkay/redux-example/gh-pages/demo.gif)]
+
 ## Table of contents
 - [Installation](#installation)
 - [Why do we need Redux?](#why-do-we-need-redux)
