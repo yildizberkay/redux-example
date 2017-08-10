@@ -117,7 +117,7 @@ export default function searchPhotos(state = initialState, action){
 In the Redux, there is only one store. It can be created directly using createStore as well as applyMiddleware.
 
 ```javascript
-// containers/App.js
+// containers/App.jsx
 
 const reducer = combineReducers(reducers);
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
@@ -139,7 +139,7 @@ export default class App extends Component {
 Store is passed to containers using *@connect* decorator as props.
 
 ```javascript
-// containers/SearchApp.js
+// containers/SearchApp.jsx
 
 @connect(state => ({
   photos: state.photos.photos,
@@ -193,7 +193,7 @@ Root
 │   │   └──
 │   ├── api
 │   │   └──
-│   └── index.js
+│   └── index.jsx
 ├── index.html
 ├── package.json
 ├── server.js
@@ -207,6 +207,10 @@ Root
 - https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 
 ## Changelog
+
+### Aug 10, 2017
+- Dependencies of the project are updated.
+- Code refactoring.
 
 ### Oct 25, 2015
 - Fetch support for all browsers. [@pcanterini](https://github.com/pcanterini) [PR](https://github.com/yildizberkay/redux-example/pull/1)
