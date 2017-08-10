@@ -1,22 +1,24 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as action from '../actions/SearchActions';
 import SearchInput from '../components/SearchInput';
 import PhotoList from '../components/PhotoList';
 
-@connect(state => ({
-  photos: state.photos.photos,
-  status: state.photos.status,
-}))
-export default class SearchApp extends Component {
 
-  static propTypes = {
-    status: PropTypes.string.isRequired,
-    photos: PropTypes.array,
-    dispatch: PropTypes.func.isRequired,
-  }
+const propTypes = {
+  status: PropTypes.string.isRequired,
+  photos: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
+};
 
+const defaultProps = {
+  status: '',
+  photos: [],
+};
+
+class SearchApp extends Component {
   render() {
     const actions = bindActionCreators(action, this.props.dispatch);
     return (
@@ -32,9 +34,24 @@ export default class SearchApp extends Component {
           </div>
         </div>
         <div className="container">
-          <PhotoList actions={actions} photos={this.props.photos} status={this.props.status}/>
+          <PhotoList actions={actions} photos={this.props.photos} status={this.props.status} />
         </div>
       </div>
     );
   }
 }
+
+SearchApp.propTypes = propTypes;
+SearchApp.defaultProps = defaultProps;
+
+
+function mapStateToProps(state) {
+  return {
+    photos: state.photos.photos,
+    status: state.photos.status,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+)(SearchApp);
