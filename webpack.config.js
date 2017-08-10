@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -11,24 +10,32 @@ module.exports = {
     publicPath: '/static/',
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015', 'stage-1'],
+            plugins: [
+              ['transform-decorators-legacy'],
+            ],
+          },
+        },
       },
       {
-        test: /\.js?$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src'),
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
       },
     ],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
   },
 };
