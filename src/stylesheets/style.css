@@ -96,18 +96,28 @@ div.form-group > input.form-control.input-lg:focus
     width: 100%;
 }
 
+.loadingWrapper
+{
+    background: rgba(255, 255 ,255, 0.5);
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 999;
+    padding: 16px;
+}
+
 .loading
 {
     box-sizing: border-box;
     width: 48px;
     height: 48px;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
 
     -webkit-animation: spinner 1s ease infinite;
        -moz-animation: spinner 1s ease infinite;
             animation: spinner 1s ease infinite;
 
-    border: 8px solid rgba(196, 196, 196, .75);
+    border: 8px solid rgba(0, 0, 255, 0.5);
     border-right-color: transparent;
     border-radius: 50%;
 }
