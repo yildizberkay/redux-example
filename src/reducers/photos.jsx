@@ -5,7 +5,7 @@ const initialState = {
   photos: [],
 };
 
-export default function searchPhotos(state = initialState, action) {
+const searchPhotos = (state = initialState, action) => {
   switch (action.type) {
     case types.SEARCH_DONE:
       return {
@@ -29,4 +29,6 @@ export default function searchPhotos(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export { searchPhotos as default };

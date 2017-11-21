@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as action from '../actions/SearchActions';
 import SearchInput from '../components/SearchInput';
 import PhotoList from '../components/PhotoList';
-
 
 const propTypes = {
   status: PropTypes.string.isRequired,
@@ -18,7 +17,7 @@ const defaultProps = {
   photos: [],
 };
 
-class SearchApp extends Component {
+class SearchApp extends PureComponent {
   render() {
     const actions = bindActionCreators(action, this.props.dispatch);
     return (
@@ -44,13 +43,10 @@ class SearchApp extends Component {
 SearchApp.propTypes = propTypes;
 SearchApp.defaultProps = defaultProps;
 
-
-function mapStateToProps(state) {
-  return {
-    photos: state.photos.photos,
-    status: state.photos.status,
-  };
-}
+const mapStateToProps = state => ({
+  photos: state.searchPhotos.photos,
+  status: state.searchPhotos.status,
+});
 
 export default connect(
   mapStateToProps,

@@ -30,7 +30,7 @@ export default class PhotoList extends Component {
           {
             this.props.photos.map(item => (
               <div className="col-md-3 image-item" key={`PhotoItem_${item.id}`}>
-                <img alt="ImageAlt" src={item.image_url} />
+                <a href={`https://500px.com${item.url}`} target="_blank"><img alt="ImageAlt" src={item.image_url} /></a>
               </div>
             ))
           }

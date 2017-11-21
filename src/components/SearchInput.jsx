@@ -39,8 +39,8 @@ export default class SearchInput extends Component {
         </div>
         {
           (() => {
-            if (this.props.status === 'PENDING') {
-              return (<div className="loading" />);
+            if (this.props.status === 'PENDING' || this.props.status === 'PENDING_FOR_NEXT') {
+              return (<div className="loadingWrapper"><div className="loading" /></div>);
             }
             return (<div />);
           })()

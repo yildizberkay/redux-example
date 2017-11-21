@@ -2,14 +2,13 @@ import React from 'react';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import * as reducers from '../reducers/index';
+import searchPhotos from '../reducers/Photos';
 import '../stylesheets/style.css';
 
 import SearchApp from './SearchApp';
 
-const reducer = combineReducers(reducers);
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
+const reducer = combineReducers({ searchPhotos });
+const store = createStore(reducer, {}, applyMiddleware(thunk));
 
 const App = () => (
   <div>

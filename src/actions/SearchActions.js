@@ -11,7 +11,6 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
       type: types.SEARCH_PENDING,
     });
   }
-
   photoSearch(keyword, page, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
@@ -24,8 +23,8 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
 
 export function searchNextPageAction() {
   return (dispatch, getState) => {
-    const page = getState().photos.page + 1;
-    const keyword = getState().photos.keyword;
+    const page = getState().searchPhotos.page + 1;
+    const keyword = getState().searchPhotos.keyword;
     searchWithPhotoAPI(keyword, page, dispatch);
   };
 }
