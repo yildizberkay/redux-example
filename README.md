@@ -53,30 +53,35 @@ Actions are used to get data. API requests can be made in this part.
 
 > Actions are payloads of information that send data from your application to your store. They are the only source of information for the store.
 >
-> Source: http://rackt.github.io/redux/docs/basics/Actions.html
+> Source: https://redux.js.org/docs/basics/Actions.html
 
-In following code, firstly **searchPhotoAction** passes only one data type, after end of the request, payload and other informations are sent using dispatch callback. Using type variable, you can determine request's state, and show a spinner.
+In the following sample, there is an action that is named as **searchPhotoAction**. This action returns a function that contains *searchWithPhotoAPI* and *dispatch* function notifies *store*. As you can see, first of all, *dispatch* sends a "SEARCH_PENDING" type, this shows a spinner in the screen. After that, if the request is succeeded, *dispatch* sends a "SEARCH_DONE", photo array and another info.
 
 ```javascript
-function searchWithPhotoAPI(keyword, page, dispatch){
+function searchWithPhotoAPI(keyword, page, dispatch) {
+  if (page >= 2) {
     dispatch({
-      type: types.SEARCH_PENDING
+      type: types.SEARCH_PENDING_FOR_NEXT,
     });
-
-    PhotoSearch(keyword, page, (d) => {
-      dispatch({
-        type: types.SEARCH_DONE,
-        photos: d.photos,
-        page,
-        keyword
-      });
+  } else {
+    dispatch({
+      type: types.SEARCH_PENDING,
+    });
+  }
+  photoSearch(keyword, page, (data) => {
+    dispatch({
+      type: types.SEARCH_DONE,
+      photos: data.photos,
+      page,
+      keyword,
+    });
   });
 }
 
-export function searchPhotoAction(keyword, page = 1){
-  return (dispatch, getState) => {
+export function searchPhotoAction(keyword, page = 1) {
+  return (dispatch) => {
     searchWithPhotoAPI(keyword, page, dispatch);
-  }
+  };
 }
 ```
 
@@ -86,7 +91,7 @@ Data comes to Reducers, and it is reshaped here. After that, it is passed to vie
 In following code, returned state is changing according to **action.type**. If ***action.type*** is *types.SEARCH_PENDING*, we will show a spinner in view.
 
 ```javascript
-export default function searchPhotos(state = initialState, action){
+const searchPhotos = (state = initialState, action) => {
   switch (action.type) {
     case types.SEARCH_DONE:
       return {
@@ -94,19 +99,19 @@ export default function searchPhotos(state = initialState, action){
         photos: [...state.photos, ...action.photos],
         status: 'DONE',
         page: action.page,
-        keyword: action.keyword
-      }
+        keyword: action.keyword,
+      };
     case types.SEARCH_PENDING_FOR_NEXT:
       return {
         ...state,
-        status: 'PENDING_FOR_NEXT'
-      }
+        status: 'PENDING_FOR_NEXT',
+      };
     case types.SEARCH_PENDING:
-        return {
-          ...state,
-          photos: [],
-          status: 'PENDING'
-        }
+      return {
+        ...state,
+        photos: [],
+        status: 'PENDING',
+      };
     default:
       return state;
   }
@@ -119,42 +124,32 @@ In the Redux, there is only one store. It can be created directly using createSt
 ```javascript
 // containers/App.jsx
 
-const reducer = combineReducers(reducers);
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
+const reducer = combineReducers({ searchPhotos });
+const store = createStore(reducer, {}, applyMiddleware(thunk));
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Provider store={store}>
-          <SearchApp />
-        </Provider>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <Provider store={store}>
+      <SearchApp />
+    </Provider>
+  </div>
+)
 ```
 
-Store is passed to containers using *@connect* decorator as props.
+#### Calling Actions
+
+Before call an action, we have to combine actions and dispatch function. *connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])* function connects a React component to a Redux store.
+
+**bindActionCreators(actionCreators, dispatch)** combines actions and dispatch function.
 
 ```javascript
 // containers/SearchApp.jsx
 
-@connect(state => ({
-  photos: state.photos.photos,
-  status: state.photos.status
-}))
-export default class SearchApp extends Component {
+...
 
-  static propTypes = {
-    status: PropTypes.string.isRequired,
-    dispatch: PropTypes.func.isRequired
-  }
-
-  render () {
+class SearchApp extends PureComponent {
+  render() {
     const actions = bindActionCreators(action, this.props.dispatch);
-
     return (
       <div>
         <div id="header" className="header">
@@ -168,45 +163,66 @@ export default class SearchApp extends Component {
           </div>
         </div>
         <div className="container">
-          <PhotoList actions={actions} photos={this.props.photos} status={this.props.status}/>
+          <PhotoList actions={actions} photos={this.props.photos} status={this.props.status} />
         </div>
       </div>
-
     );
   }
 }
+
+...
+
+export default connect(
+  mapStateToProps,
+)(SearchApp);
 ```
+
+Now, you can call actions via following code.
+
+```
+actions.searchPhotoAction(keyword, page)
+```
+
 
 ## Directory structure
 ```
 Root
+├── public
+│   ├── actions
 ├── src
 │   ├── actions
 │   │   └──
-│   ├── reducers
-│   │   └──
+│   ├── api
+│   │   └──
+│   ├── components
+│   │   └──
 │   ├── constants
 │   │   └──
 │   ├── containers
 │   │   └──
-│   ├── components
-│   │   └──
-│   ├── api
-│   │   └──
-│   └── index.jsx
-├── index.html
+│   ├── reducers
+│   │   └──
+│   ├── stylesheets
+│   │   └──
+│   └── index.js
+├── .eslintignore
+├── .eslintrc.json
 ├── package.json
-├── server.js
-└── webpack.config.js
+└── README.md
 ```
 
 ## Resources
-- https://facebook.github.io/react/
-- http://rackt.github.io/redux/
-- http://webpack.github.io
+- https://reactjs.org/
+- https://redux.js.org/
 - https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 
 ## Changelog
+
+### Nov 21, 2017
+- README update.
+- ReactJS version update. [15.6.2]
+- Redux version update. [3.7.2]
+- React Scripts migration.
 
 ### Aug 10, 2017
 - Dependencies of the project are updated.
