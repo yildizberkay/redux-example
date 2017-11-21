@@ -6,12 +6,11 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
     dispatch({
       type: types.SEARCH_PENDING_FOR_NEXT,
     });
-  }else {
+  } else {
     dispatch({
       type: types.SEARCH_PENDING,
     });
   }
-
   photoSearch(keyword, page, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
@@ -23,9 +22,9 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
 }
 
 export function searchNextPageAction() {
-  return (dispatch, getState) =>{
-    const page = getState().photos.page + 1;
-    const keyword = getState().photos.keyword;
+  return (dispatch, getState) => {
+    const page = getState().searchPhotos.page + 1;
+    const keyword = getState().searchPhotos.keyword;
     searchWithPhotoAPI(keyword, page, dispatch);
   };
 }
