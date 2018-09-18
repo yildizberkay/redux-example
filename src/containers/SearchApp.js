@@ -6,17 +6,6 @@ import * as action from '../actions/SearchActions';
 import SearchInput from '../components/SearchInput';
 import PhotoList from '../components/PhotoList';
 
-const propTypes = {
-  status: PropTypes.string.isRequired,
-  photos: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
-};
-
-const defaultProps = {
-  status: '',
-  photos: [],
-};
-
 class SearchApp extends PureComponent {
   render() {
     const actions = bindActionCreators(action, this.props.dispatch);
@@ -40,8 +29,15 @@ class SearchApp extends PureComponent {
   }
 }
 
-SearchApp.propTypes = propTypes;
-SearchApp.defaultProps = defaultProps;
+SearchApp.propTypes = {
+  status: PropTypes.string.isRequired,
+  photos: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
+};
+SearchApp.defaultProps = {
+  status: '',
+  photos: [],
+};
 
 const mapStateToProps = state => ({
   photos: state.searchPhotos.photos,

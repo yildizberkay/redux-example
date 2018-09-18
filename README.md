@@ -122,8 +122,7 @@ const searchPhotos = (state = initialState, action) => {
 In the Redux, there is only one store. It can be created directly using createStore as well as applyMiddleware.
 
 ```javascript
-// containers/App.jsx
-
+App.js
 const reducer = combineReducers({ searchPhotos });
 const store = createStore(reducer, {}, applyMiddleware(thunk));
 
@@ -143,8 +142,7 @@ Before call an action, we have to combine actions and dispatch function. *connec
 **bindActionCreators(actionCreators, dispatch)** combines actions and dispatch function.
 
 ```javascript
-// containers/SearchApp.jsx
-
+SearchApp.js
 ...
 
 class SearchApp extends PureComponent {

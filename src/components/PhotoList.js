@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  actions: PropTypes.object,
-  photos: PropTypes.array,
-  status: PropTypes.string,
-};
 
-const defaultProps = {
-  actions: {},
-  photos: [],
-  status: '',
-};
-
-export default class PhotoList extends Component {
+class PhotoList extends Component {
   constructor(props) {
     super(props);
     this.nextPage = this.nextPage.bind(this);
@@ -30,7 +19,10 @@ export default class PhotoList extends Component {
           {
             this.props.photos.map(item => (
               <div className="col-md-3 image-item" key={`PhotoItem_${item.id}`}>
-                <a href={`https://500px.com${item.url}`} target="_blank"><img alt="ImageAlt" src={item.image_url} /></a>
+                <a href={`https://500px.com${item.url}`} target="_blank"><img
+                  alt="ImageAlt"
+                  src={item.image_url}
+                /></a>
               </div>
             ))
           }
@@ -47,7 +39,8 @@ export default class PhotoList extends Component {
                       onClick={this.nextPage}
                       type="button"
                       className="btn btn-default btn-lg btn-block"
-                    >Load More</button>
+                    >Load More
+                    </button>
                   </div>
                 </div>
               );
@@ -60,5 +53,16 @@ export default class PhotoList extends Component {
   }
 }
 
-PhotoList.propTypes = propTypes;
-PhotoList.defaultProps = defaultProps;
+PhotoList.propTypes = {
+  actions: PropTypes.object,
+  photos: PropTypes.array,
+  status: PropTypes.string,
+};
+
+PhotoList.defaultProps = {
+  actions: {},
+  photos: [],
+  status: '',
+};
+
+export default PhotoList;

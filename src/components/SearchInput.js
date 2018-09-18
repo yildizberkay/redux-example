@@ -2,17 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  actions: PropTypes.object,
-  status: PropTypes.string,
-};
 
-const defaultProps = {
-  actions: {},
-  status: '',
-};
-
-export default class SearchInput extends Component {
+class SearchInput extends Component {
   constructor(props) {
     super(props);
     this.searchPhoto = this.searchPhoto.bind(this);
@@ -50,5 +41,14 @@ export default class SearchInput extends Component {
   }
 }
 
-SearchInput.propTypes = propTypes;
-SearchInput.defaultProps = defaultProps;
+SearchInput.propTypes = {
+  actions: PropTypes.object,
+  status: PropTypes.string,
+};
+
+SearchInput.defaultProps = {
+  actions: {},
+  status: '',
+};
+
+export default SearchInput;

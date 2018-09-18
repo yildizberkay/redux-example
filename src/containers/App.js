@@ -2,7 +2,7 @@ import React from 'react';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import searchPhotos from '../reducers/Photos';
+import searchPhotos from '../reducers/photos';
 import '../stylesheets/style.css';
 
 import SearchApp from './SearchApp';
