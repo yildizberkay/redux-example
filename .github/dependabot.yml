@@ -1,0 +1,43 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "03:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 4.19.1
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: react-redux
+    versions:
+    - 5.1.1
+    - 7.2.2
+    - 7.2.3
+  - dependency-name: react-dom
+    versions:
+    - 15.6.2
+    - 17.0.1
+  - dependency-name: react
+    versions:
+    - 16.14.0
+    - 17.0.1
+  - dependency-name: whatwg-fetch
+    versions:
+    - 3.5.0
+    - 3.6.1
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+  - dependency-name: redux
+    versions:
+    - 4.0.5
+  - dependency-name: eslint-config-airbnb
+    versions:
+    - 16.1.0
